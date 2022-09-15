@@ -1,0 +1,14 @@
+group = 'dr.scs'
+// version should not have '-'
+version = new Date().format("yyyy.MMdd.HHmm", TimeZone.getTimeZone("GMT+08:00"))
+archivesBaseName = 'user-api'
+sourceCompatibility = 1.8
+description = 'Spring Cloud Starter User Api'
+
+mainClassName = 'dr.scs.user.api.App'
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-web:2.1.4.RELEASE'
+
+  implementation project(':pro-base')
+}

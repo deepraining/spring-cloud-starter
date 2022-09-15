@@ -1,0 +1,8 @@
+include ':pro-base'
+include ':pro-gateway'
+include ':pro-user-api'
+include ':pro-user-cloud'
+include ':pro-article-api'
+include ':pro-article-cloud'
+
+rootProject.name = 'spring-cloud-starter'

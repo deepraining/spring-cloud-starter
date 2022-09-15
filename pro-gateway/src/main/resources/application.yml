@@ -1,0 +1,56 @@
+server:
+  port: 9100
+  use-forward-headers: true
+  servlet:
+    session:
+      timeout: 86400s
+      cookie:
+        http-only: true
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+
+spring:
+  profiles:
+    active: dev
+  output:
+    ansi:
+      enabled: always
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    sleuth:
+      web:
+        client:
+          enabled: true
+    sampler:
+      # 抽样率，默认是0.1（90%的数据会被丢弃）
+      probability: 1.0
+  application:
+    name: gateway-provider
+  cloud:
+    # 服务注册和发现
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+    gateway:
+      httpclient:
+        connect-timeout: 1000
+        response-timeout: 15s
+      routes:
+        - id: user_route
+          uri: lb://user-provider
+          predicates:
+            - Path=/user/**
+        - id: article_route
+          uri: lb://article-provider
+          predicates:
+            - Path=/article/**

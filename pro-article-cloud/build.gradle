@@ -1,0 +1,22 @@
+group = 'dr.scs'
+// version should not have '-'
+version = new Date().format("yyyy.MMdd.HHmm", TimeZone.getTimeZone("GMT+08:00"))
+archivesBaseName = 'article-cloud'
+sourceCompatibility = 1.8
+description = 'Spring Cloud Starter Article Cloud'
+
+mainClassName = 'dr.scs.article.cloud.App'
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-web:2.1.4.RELEASE'
+
+  implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2.1.1.RELEASE'
+  implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.1.1.RELEASE'
+  implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:2.1.1.RELEASE'
+  implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2.1.1.RELEASE'
+  implementation 'org.springframework.cloud:spring-cloud-starter-zipkin:2.1.1.RELEASE'
+
+  implementation project(':pro-base')
+  implementation project(':pro-article-api')
+  implementation project(':pro-user-api')
+}

@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    # 服务注册和发现
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    sleuth:
+      web:
+        client:
+          enabled: true
+    sampler:
+      # 抽样率，默认是0.1（90%的数据会被丢弃）
+      # 为了测试方便，将其设置为1.0，即所有的数据都会上报给zipkin
+      probability: 1.0

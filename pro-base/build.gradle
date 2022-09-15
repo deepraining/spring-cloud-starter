@@ -1,0 +1,13 @@
+group = 'dr.scs'
+// version should not have '-'
+version = new Date().format("yyyy.MMdd.HHmm", TimeZone.getTimeZone("GMT+08:00"))
+archivesBaseName = 'base'
+sourceCompatibility = 1.8
+description = 'Spring Cloud Starter Base'
+
+mainClassName = 'dr.scs.base.App'
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-web:2.1.4.RELEASE'
+  implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:2.1.1.RELEASE'
+}
